@@ -7,13 +7,13 @@ import {
   Platform,
   StyleSheet,
 } from 'react-native';
-import {MMCButton} from '../components/MMCButton';
-import Color from '../utilities/colors';
-import {MMCLabeledInput} from '../components/MMCLabeledInput';
+import {MMCButton} from '../../components/MMCButton';
+import Color from '../../utilities/colors';
+import {MMCLabeledInput} from '../../components/MMCLabeledInput';
 import {createInitialState, reducer} from './LoginFormData';
 import {BSON} from 'realm';
 import {useRealm, useQuery} from '@realm/react';
-import {User} from '../utilities/User';
+import {User} from '../../utilities/User';
 
 export function LoginScreen(): React.JSX.Element {
   const realm = useRealm();

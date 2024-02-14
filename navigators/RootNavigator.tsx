@@ -3,7 +3,7 @@ import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Color from '../utilities/colors';
-import {LoginScreen} from '../screens/LoginScreen';
+import {LoginScreen} from '../screens/login/LoginScreen';
 import {RealmProvider} from '@realm/react';
 import {User} from '../utilities/User';
 

@@ -1,5 +1,5 @@
-import {validateName, validateEmail} from '../utilities/validation';
-import {User} from '../utilities/User';
+import {validateName, validateEmail} from '../../utilities/validation';
+import {User} from '../../utilities/User';
 
 export type MMCTarget = {
   value: string;

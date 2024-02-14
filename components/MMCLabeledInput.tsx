@@ -10,7 +10,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Color from '../utilities/colors';
-import {MMCTarget} from '../screens/LoginFormData';
+import {MMCTarget} from '../screens/login/LoginFormData';
 
 type MMCLabeledInputProps = {
   label: string;
