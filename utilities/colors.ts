@@ -4,6 +4,7 @@ enum Color {
   white = '#EDEFEE',
   red = '#FBDABB',
   gray = '#333333',
+  lightGray = '#AFAFAF',
 }
 
 export default Color;
