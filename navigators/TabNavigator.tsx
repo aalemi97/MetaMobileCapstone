@@ -2,8 +2,8 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeScreen} from '../screens/tabs/HomeScreen';
 import {ProfileScreen} from '../screens/tabs/ProfileScreen';
-import {TabBarIcon} from './TabBarIcon';
-import ProfileImageButton from './ProfileImageButton';
+import {TabBarIcon} from '../components/TabBarIcon';
+import ProfileImageButton from '../components/ProfileImageButton';
 import Color from '../utilities/colors';
 
 const Tab = createBottomTabNavigator();
