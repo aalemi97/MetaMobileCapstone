@@ -5,6 +5,7 @@ import {
   View,
   Dimensions,
   NativeSyntheticEvent,
+  KeyboardTypeOptions,
   TextInputFocusEventData,
   StyleSheet,
 } from 'react-native';
@@ -15,6 +16,7 @@ type MMCLabeledInputProps = {
   label: string;
   placeholder: string;
   target: MMCTarget;
+  keyboardType?: KeyboardTypeOptions;
   errorText: string;
   shouldShowError: boolean;
   onChangeText: (text: string) => void;
@@ -25,6 +27,7 @@ export function MMCLabeledInput({
   label,
   placeholder,
   target,
+  keyboardType,
   errorText,
   shouldShowError,
   onChangeText,
@@ -40,6 +43,7 @@ export function MMCLabeledInput({
         clearButtonMode="while-editing"
         onChangeText={onChangeText}
         onBlur={onBlur}
+        keyboardType={keyboardType}
       />
       {shouldShowError && <Text style={styles.error}>{errorText}</Text>}
     </View>

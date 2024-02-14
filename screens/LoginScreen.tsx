@@ -11,9 +11,27 @@ import {MMCButton} from '../components/MMCButton';
 import Color from '../utilities/colors';
 import {MMCLabeledInput} from '../components/MMCLabeledInput';
 import {createInitialState, reducer} from './LoginFormData';
+import {BSON} from 'realm';
+import {useRealm, useQuery} from '@realm/react';
+import {User} from '../utilities/User';
 
 export function LoginScreen(): React.JSX.Element {
-  const [state, dispatch] = React.useReducer(reducer, createInitialState());
+  const realm = useRealm();
+  const users = useQuery(User);
+  const [state, dispatch] = React.useReducer(
+    reducer,
+    createInitialState(users[0]),
+  );
+  const createUser = () => {
+    realm.write(() => {
+      realm.create(User, {
+        _id: new BSON.ObjectId(),
+        firstName: state.firstName.value,
+        lastName: state.lastName.value,
+        email: state.email.value,
+      });
+    });
+  };
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
@@ -60,6 +78,7 @@ export function LoginScreen(): React.JSX.Element {
             label="Email Address"
             placeholder="email@example.ca"
             target={state.email}
+            keyboardType="email-address"
             errorText="Please enter a valid email address!"
             shouldShowError={state.email.touched && !state.email.valid}
             onChangeText={email =>
@@ -83,9 +102,7 @@ export function LoginScreen(): React.JSX.Element {
                 state.email.valid
               )
             }
-            onPress={event => {
-              console.log(event);
-            }}
+            onPress={createUser}
           />
         </ScrollView>
       </KeyboardAvoidingView>

@@ -1,4 +1,6 @@
 import {validateName, validateEmail} from '../utilities/validation';
+import {User} from '../utilities/User';
+
 export type MMCTarget = {
   value: string;
   touched: boolean;
@@ -22,12 +24,20 @@ interface Action {
   target: 'firstName' | 'lastName' | 'email';
 }
 
-export function createInitialState(): State {
-  return {
-    firstName: {value: '', touched: false, valid: false},
-    lastName: {value: '', touched: false, valid: false},
-    email: {value: '', touched: false, valid: false},
-  };
+export function createInitialState(user?: User): State {
+  if (user) {
+    return {
+      firstName: {value: user.firstName, touched: false, valid: true},
+      lastName: {value: user.lastName, touched: false, valid: true},
+      email: {value: user.email, touched: false, valid: true},
+    };
+  } else {
+    return {
+      firstName: {value: '', touched: false, valid: false},
+      lastName: {value: '', touched: false, valid: false},
+      email: {value: '', touched: false, valid: false},
+    };
+  }
 }
 
 export function reducer(state: State, action: Action): State {
