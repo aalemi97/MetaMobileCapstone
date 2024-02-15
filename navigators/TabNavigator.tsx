@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {HomeScreen} from '../screens/tabs/HomeScreen';
+import {HomeScreen} from '../screens/tabs/home/HomeScreen';
 import {ProfileScreen} from '../screens/tabs/ProfileScreen';
 import {TabBarIcon} from '../components/TabBarIcon';
 import ProfileImageButton from '../components/ProfileImageButton';
@@ -14,7 +14,11 @@ export function TabNavigator(): React.JSX.Element {
       screenOptions={({route}) => ({
         headerStyle: {backgroundColor: Color.yellow},
         headerTintColor: Color.green,
-        tabBarStyle: {backgroundColor: Color.white},
+        tabBarStyle: {
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          position: 'absolute',
+        },
         tabBarActiveTintColor: Color.green,
         tabBarInactiveTintColor: Color.lightGray,
         tabBarIcon: ({focused, color, size}) => {
