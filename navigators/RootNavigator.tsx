@@ -3,7 +3,7 @@ import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useQuery} from '@realm/react';
-import {User} from '../utilities/User';
+import {User} from '../models/User';
 import {LoginScreen} from '../screens/login/LoginScreen';
 import {TabNavigator} from './TabNavigator';
 import Color from '../utilities/colors';

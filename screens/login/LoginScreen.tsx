@@ -10,7 +10,7 @@ import {
 import {createInitialState, reducer} from './LoginFormData';
 import {BSON} from 'realm';
 import {useRealm} from '@realm/react';
-import {User} from '../../utilities/User';
+import {User} from '../../models/User';
 import {MMCLabeledInput} from '../../components/MMCLabeledInput';
 import {MMCButton} from '../../components/MMCButton';
 import Color from '../../utilities/colors';

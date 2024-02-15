@@ -1,15 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import Color from '../../../utilities/colors';
-
-type MenuItem = {
-  id: number;
-  title: string;
-  description: string;
-  price: string;
-  image: string;
-  category: string;
-};
+import {MenuItem} from '../../../models/MenuItem';
 
 type MenuItemViewProps = {
   menuItem: MenuItem;

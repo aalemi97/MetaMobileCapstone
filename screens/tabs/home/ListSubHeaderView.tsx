@@ -8,13 +8,8 @@ import {
   Pressable,
 } from 'react-native';
 import Color from '../../../utilities/colors';
+import {Category} from '../../../models/Category';
 
-export enum Category {
-  all = 'All',
-  dessert = 'Desserts',
-  main = 'Mains',
-  starter = 'Starters',
-}
 const categories = [
   Category.all,
   Category.dessert,

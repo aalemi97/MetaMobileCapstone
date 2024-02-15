@@ -1,7 +1,8 @@
 import React from 'react';
 import {Text, View, Image, StyleSheet, Dimensions} from 'react-native';
 import Color from '../../../utilities/colors';
-import {ListSubHeaderView, Category} from './ListSubHeaderView';
+import {ListSubHeaderView} from './ListSubHeaderView';
+import {Category} from '../../../models/Category';
 
 export function ListHeaderView({
   onPress,

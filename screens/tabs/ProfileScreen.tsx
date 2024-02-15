@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text} from 'react-native';
 import {useRealm, useQuery} from '@realm/react';
-import {User} from '../../utilities/User';
+import {User} from '../../models/User';
 import {MMCButton} from '../../components/MMCButton';
 
 export function ProfileScreen(): React.JSX.Element {
