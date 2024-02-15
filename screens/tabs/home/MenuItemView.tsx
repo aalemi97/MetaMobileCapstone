@@ -18,7 +18,7 @@ export function MenuItemView({menuItem}: MenuItemViewProps): React.JSX.Element {
       <Image
         style={styles.image}
         source={{uri: menuItem.image}}
-        defaultSource={require('../../../assets/person.circle.png')}
+        defaultSource={require('../../../assets/photo.circle.png')}
       />
     </View>
   );
