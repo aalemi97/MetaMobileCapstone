@@ -1,5 +1,11 @@
 import React from 'react';
-import {SafeAreaView, FlatList, StyleSheet, View} from 'react-native';
+import {
+  SafeAreaView,
+  FlatList,
+  StyleSheet,
+  View,
+  KeyboardAvoidingView,
+} from 'react-native';
 import {useRealm} from '@realm/react';
 import Color from '../../../utilities/colors';
 import {ListHeaderView} from './ListHeaderView';
@@ -9,20 +15,33 @@ import {Category} from '../../../models/Category';
 
 export function HomeScreen(): React.JSX.Element {
   const realm = useRealm();
+  const [category, setCategory] = React.useState(Category.all);
   const [menuItems, setMenuItems] = React.useState([
     ...realm.objects(MenuItem),
   ]);
-  const onCategoryPress = (category: Category) => {
+  const searchCategory = (category: Category): MenuItem[] => {
     const items = [...realm.objects(MenuItem)];
+    setCategory(category);
     if (category == Category.all) {
-      setMenuItems(items);
+      return items;
     } else {
-      setMenuItems(
-        items.filter(item => {
-          return item.category == category.toLocaleLowerCase();
-        }),
-      );
+      return items.filter(item => {
+        return item.category == category.toLocaleLowerCase();
+      });
     }
+  };
+  const onSearch = (text: string) => {
+    const items = searchCategory(category);
+    const searchText = text.trim();
+    if (searchText !== '') {
+      setMenuItems(items.filter(item => item.title.includes(searchText)));
+    } else {
+      setMenuItems(items);
+    }
+    return;
+  };
+  const onCategoryPress = (category: Category) => {
+    setMenuItems(searchCategory(category));
   };
 
   const addItems = (items: [MenuItem]) => {
@@ -49,12 +68,16 @@ export function HomeScreen(): React.JSX.Element {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={menuItems}
-        renderItem={({item}) => <MenuItemView menuItem={item} />}
-        ListHeaderComponent={<ListHeaderView onPress={onCategoryPress} />}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
-      />
+      <KeyboardAvoidingView keyboardVerticalOffset={200}>
+        <FlatList
+          data={menuItems}
+          renderItem={({item}) => <MenuItemView menuItem={item} />}
+          ListHeaderComponent={
+            <ListHeaderView onChangeText={onSearch} onPress={onCategoryPress} />
+          }
+          ItemSeparatorComponent={() => <View style={styles.separator} />}
+        />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -62,6 +85,7 @@ export function HomeScreen(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
   separator: {
     height: 1,

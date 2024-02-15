@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     margin: 20,
+    backgroundColor: '#ffffff',
   },
   content: {flex: 1, flexDirection: 'column', gap: 10, marginRight: 15},
   title: {color: Color.gray, fontSize: 20},

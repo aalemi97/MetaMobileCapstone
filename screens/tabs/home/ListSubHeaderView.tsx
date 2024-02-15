@@ -26,7 +26,9 @@ export function ListSubHeaderView({
   return (
     <View style={styles.container}>
       <View style={styles.titleView}>
-        <Text style={styles.title}>Out for Delivery</Text>
+        <Text style={styles.title}>
+          {'Ordered for Delivery!'.toUpperCase()}
+        </Text>
         <Image
           style={styles.image}
           source={require('../../../assets/delivery.png')}
@@ -56,6 +58,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     height: 142,
+    backgroundColor: '#ffffff',
+    borderBottomWidth: 2,
+    borderBottomColor: Color.lightGray,
   },
   titleView: {
     flexDirection: 'row',
@@ -63,7 +68,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   categoriesView: {
-    flex: 0.7,
+    flex: 0.9,
     flexDirection: 'row',
     gap: 15,
     alignSelf: 'center',
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
     color: Color.green,
   },
   title: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     color: Color.gray,
     alignSelf: 'center',
