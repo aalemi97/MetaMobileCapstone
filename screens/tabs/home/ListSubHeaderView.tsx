@@ -40,6 +40,7 @@ export function ListSubHeaderView({
       <View style={styles.categoriesView}>
         {categories.map((category, index) => (
           <Pressable
+            key={category}
             style={active === index ? styles.categoryActive : styles.category}
             onPress={() => {
               setActive(index);

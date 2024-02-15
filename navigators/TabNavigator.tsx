@@ -17,7 +17,7 @@ export function TabNavigator(): React.JSX.Element {
         tabBarStyle: {
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
-          position: 'absolute',
+          position: 'relative',
         },
         tabBarActiveTintColor: Color.green,
         tabBarInactiveTintColor: Color.lightGray,
