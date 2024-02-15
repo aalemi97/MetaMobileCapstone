@@ -68,16 +68,14 @@ export function HomeScreen(): React.JSX.Element {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView keyboardVerticalOffset={200}>
-        <FlatList
-          data={menuItems}
-          renderItem={({item}) => <MenuItemView menuItem={item} />}
-          ListHeaderComponent={
-            <ListHeaderView onChangeText={onSearch} onPress={onCategoryPress} />
-          }
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
-      </KeyboardAvoidingView>
+      <FlatList
+        data={menuItems}
+        renderItem={({item}) => <MenuItemView menuItem={item} />}
+        ListHeaderComponent={
+          <ListHeaderView onChangeText={onSearch} onPress={onCategoryPress} />
+        }
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+      />
     </SafeAreaView>
   );
 }

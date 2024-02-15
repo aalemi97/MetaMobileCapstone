@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Text,
-  SafeAreaView,
+  View,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
@@ -29,7 +29,7 @@ export function LoginScreen(): React.JSX.Element {
     });
   };
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={80}>
@@ -102,16 +102,24 @@ export function LoginScreen(): React.JSX.Element {
           />
         </ScrollView>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: Color.green, justifyContent: 'center'},
+  container: {
+    flex: 1,
+    backgroundColor: Color.green,
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
   title: {
     color: Color.yellow,
     textAlign: 'center',
-    margin: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 60,
+    marginBottom: 40,
     fontSize: 40,
     fontWeight: 'bold',
   },

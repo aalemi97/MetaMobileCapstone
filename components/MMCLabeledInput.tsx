@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     gap: 10,
-    marginBottom: 20,
+    marginBottom: 40,
   },
-  text: {color: Color.white, fontSize: 25, fontWeight: '600'},
+  text: {color: Color.white, fontSize: 20, fontWeight: '600'},
   input: {
     backgroundColor: Color.white,
-    width: Dimensions.get('window').width - 100,
+    width: Dimensions.get('window').width - 40,
     height: 60,
     borderRadius: 15,
     padding: 10,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   error: {
-    fontSize: 20,
+    fontSize: 15,
     color: Color.red,
   },
 });

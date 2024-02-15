@@ -34,7 +34,7 @@ export function MMCButton({
 const styles = StyleSheet.create({
   view: {
     backgroundColor: Color.yellow,
-    width: Dimensions.get('window').width - 100,
+    width: Dimensions.get('window').width - 40,
     height: 60,
     borderRadius: 15,
     alignSelf: 'center',
@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Color.green,
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   viewDisabled: {
     backgroundColor: Color.gray,
-    width: Dimensions.get('window').width - 100,
+    width: Dimensions.get('window').width - 40,
     height: 60,
     borderRadius: 15,
     alignSelf: 'center',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   textDisabled: {
     color: Color.yellow,
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
