@@ -6,24 +6,36 @@ import {
   StyleSheet,
   GestureResponderEvent,
   Dimensions,
+  TextStyle,
+  ViewStyle,
 } from 'react-native';
 import Color from '../utilities/colors';
 
 type MMCButtonProps = {
   title: string;
   disabled: boolean;
+  viewStyle?: ViewStyle;
+  textStyle?: TextStyle;
   onPress: (event: GestureResponderEvent) => void;
 };
 
 export function MMCButton({
   title,
-  onPress,
   disabled,
+  viewStyle,
+  textStyle,
+  onPress,
 }: MMCButtonProps): React.JSX.Element {
   return (
     <Pressable onPress={onPress} disabled={disabled}>
-      <View style={disabled ? styles.viewDisabled : styles.view}>
-        <Text style={disabled ? styles.textDisabled : styles.text}>
+      <View
+        style={
+          viewStyle ? viewStyle : disabled ? styles.viewDisabled : styles.view
+        }>
+        <Text
+          style={
+            textStyle ? textStyle : disabled ? styles.textDisabled : styles.text
+          }>
           {title}
         </Text>
       </View>
